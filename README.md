@@ -1,1 +1,1 @@
-PlaatSoft java parent
+PlaatSoft Spring Java 17 parent
