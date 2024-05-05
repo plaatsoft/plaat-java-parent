@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>3.2.5</version>
+      <relativePath />
+   </parent>
+
+   <groupId>nl.plaatsoft</groupId>
+   <artifactId>plaat-java-parent</artifactId>
+   <version>1.0.0-SNAPSHOT</version>
+   <packaging>pom</packaging>
+
+   <organization>
+      <name>PlaatSoft</name>
+   </organization>
+
+   <properties>
+
+      <!-- Java Versions -->
+      <java.version>17</java.version>
+      <maven.compiler.source>${java.version}</maven.compiler.source>
+      <maven.compiler.target>${java.version}</maven.compiler.target>
+
+      <!-- project -->
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+      <!-- Sonar -->
+      <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+      <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+      <sonar.surefire.reportsPath>${project.basedir}/target/surefire-reports</sonar.surefire.reportsPath>
+      <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+      <sonar.language>java</sonar.language>
+
+      <!-- Eclipse Versions -->
+      <eclipsePluginVersion>2.8</eclipsePluginVersion>
+
+      <!-- Postgresql Version -->
+      <postgresql.version>42.7.3</postgresql.version>
+
+      <!-- Spring -->
+      <spring.version>5.3.31</spring.version>
+
+      <!-- Spring boot -->
+      <spring.boot.version>3.2.5</spring.boot.version>
+
+      <!-- Log4j Version -->
+      <log4j.version>2.21.1</log4j.version>
+
+      <!-- Lombok Version -->
+      <lombok.version>1.18.32</lombok.version>
+
+      <!-- jacoco Version-->
+      <jacoco.version>0.8.8</jacoco.version>
+      <sonar.coverage.jacoco.xmlReportPaths>
+         ${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+
+   </properties>
+
+   <dependencyManagement>
+      <dependencies>
+
+         <!-- Postgresql -->
+         <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+         </dependency>
+
+         <!-- Spring -->
+         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+            <version>${spring.version}</version>
+         </dependency>
+
+         <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring.boot.version}</version>
+         </dependency>
+
+         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+            <version>5.3.31</version>
+         </dependency>
+
+         <!-- Spring boot -->
+         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring.boot.version}</version>
+         </dependency>
+
+         <!-- Spring JPA -->
+         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring.boot.version}</version>
+         </dependency>
+
+         <!-- Spring JDBC -->
+         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+            <version>${spring.boot.version}</version>
+         </dependency>
+
+         <!-- Spring Data Validation -->
+         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <version>${spring.boot.version}</version>
+         </dependency>
+
+         <!-- Spring REST -->
+         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+         </dependency>
+
+         <!-- Spring Security -->
+         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring.boot.version}</version>
+         </dependency>
+
+         <!-- Swagger  -->
+         <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.5.0</version>
+         </dependency>
+
+         <!-- Log4j  -->
+         <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+         </dependency>
+
+         <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+         </dependency>
+
+         <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.4.4</version>
+         </dependency>
+
+         <!-- Lombok -->
+         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+         </dependency>
+
+         <!-- TEST DEPENDENCIES -->
+
+         <!-- Junit 5 -->
+         <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+         </dependency>
+
+         <!-- H2 -->
+         <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.2.224</version>
+         </dependency>
+
+         <!-- Spring Test -->
+         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>test</scope>
+         </dependency>
+
+      </dependencies>
+   </dependencyManagement>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>repackage</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <skip>true</skip>
+               <excludes>
+                  <exclude>
+                     <groupId>org.projectlombok</groupId>
+                     <artifactId>lombok</artifactId>
+                  </exclude>
+               </excludes>
+            </configuration>
+         </plugin>
+
+         <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <configuration>
+               <descriptorRefs>
+                  <descriptorRef>project</descriptorRef>
+               </descriptorRefs>
+            </configuration>
+         </plugin>
+      </plugins>
+
+      <resources>
+         <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+         </resource>
+      </resources>
+   </build>
+
+</project>
